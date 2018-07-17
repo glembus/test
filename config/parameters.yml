@@ -1,0 +1,6 @@
+db_conn:
+    db_driver: pdo_mysql
+    db_host: localhost
+    db_user: root
+    db_pass: maxxtro
+    db_schema: site
