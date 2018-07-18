@@ -3,7 +3,6 @@
 use Silex\Provider\DoctrineServiceProvider;
 use Symfony\Component\Yaml\Yaml;
 
-echo 2;
 $app['twig.path']    = [__DIR__ . '/../templates'];
 $app['twig.options'] = ['cache' => __DIR__ . '/../var/cache/twig'];
 

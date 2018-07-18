@@ -2,7 +2,7 @@
 
 namespace Entity;
 
-class News extends AbstractEntity
+class News
 {
     const TABLE_NAME = 'News';
 
@@ -12,34 +12,21 @@ class News extends AbstractEntity
 
     /**
      * @var int
-     * Field Nws_Id
-     * Type INT
-     * Primary Key
-     * Autoincrement
      */
     private $id;
 
     /**
      * @var string
-     * Field Nws_Title
-     * Type STRING
-     * Length 255
      */
     private $title;
 
     /**
      * @var string
-     * Field Nws_Content
-     * Type TEXT
-     * Nullable TRUE
      */
     private $content;
 
     /**
      * @var int
-     * Field Nws_Status
-     * Type SMALLINT
-     * DEFAULT 0
      */
     private $status;
 
@@ -55,20 +42,7 @@ class News extends AbstractEntity
     }
 
     /**
-     * @return string
-     */
-    public function getTableName()
-    {
-        return self::TABLE_NAME;
-    }
-
-    public function hasForeignConstrain()
-    {
-        return false;
-    }
-
-    /**
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -87,7 +61,7 @@ class News extends AbstractEntity
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getTitle()
     {
@@ -106,7 +80,7 @@ class News extends AbstractEntity
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getContent()
     {
@@ -143,7 +117,22 @@ class News extends AbstractEntity
         return $this;
     }
 
-    public
+    /**
+     * @return array
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
 
-    public function addCategory()
+    /**
+     * @param array $categories
+     *
+     * @return News
+     */
+    public function setCategories($categories)
+    {
+        $this->categories = $categories;
+        return $this;
+    }
 }

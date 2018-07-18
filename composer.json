@@ -23,8 +23,7 @@
         "symfony/twig-bridge": "~2.8|^3.0",
         "symfony/validator": "~2.8|^3.0",
         "symfony/yaml": "^4.1",
-        "doctrine/dbal": "~2.2",
-        "components/bootstrap": "3.*"
+        "doctrine/dbal": "~2.2"
     },
     "autoload": {
         "psr-0": { "": "src/" }
@@ -36,8 +35,8 @@
     },
     "scripts": {
         "schema_update": [
-            "echo 'Prepare schema' . PHP_EOL",
-            "php schema_create.php"
+            "echo 'Prepare schema'",
+            "php bin/console schema:prepare"
         ],
         "run": [
             "echo 'Started web server on http://localhost:8888'",

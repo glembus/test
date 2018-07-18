@@ -2,33 +2,20 @@
 
 namespace Entity;
 
-class Category implements EntityInterface
+class Category
 {
     const TABLE_NAME = 'Category';
 
     /**
      * @var int
-     * Field Cat_Id
-     * Type INT
-     * Primary Key
-     * Autoincrement
      */
     private $id;
 
     /**
      * @var string
-     * Field Cat_Name
-     * Type STRING
-     * Length 255
      */
     private $name;
 
-    /**
-     * @param array $array
-     *
-     * @return Category
-     * @throws \ReflectionException
-     */
     static public function createFromArray(array $array)
     {
         /** @var \ReflectionClass $refl */
@@ -42,22 +29,6 @@ class Category implements EntityInterface
         }
 
         return $category;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTableName()
-    {
-        return self::TABLE_NAME;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasForeignConstrain()
-    {
-        return false;
     }
 
     /**
@@ -80,7 +51,7 @@ class Category implements EntityInterface
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {

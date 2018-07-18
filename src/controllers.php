@@ -5,20 +5,17 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Controller\DefaultController;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 
-$app->get('/', function () use ($app) {
-    try {
-       $appCfg = $app['db']->fetchAll('SELECT * FROM App_Config');
-       var_dump($appCfg);
-    }catch (\Throwable $e) {
-        var_dump($e->getMessage());
-    }
-    return $app['twig']->render('index.html.twig', array());
-})
-->bind('homepage')
-;
+$app["news.controller"] = function() use ($app) {
+    return new DefaultController($app['db'], $app['twig']);
+};
+
+$app->get('/', "news.controller:mainAction")->bind('news_main');
+
+$app->get('/{id}', "news.controller:showNewsAction")->bind('news_show');
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
